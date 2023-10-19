@@ -34,7 +34,7 @@ const MyDrawer = (props) => {
   const location = useLocation();
   const classes = useStyles(location);
 
-//   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const drawerItems = [
     {
@@ -94,7 +94,7 @@ const MyDrawer = (props) => {
         {name === "Logout" ? (
           <div
             className={classes.link}
-            // onClick={() => dispatch(_logout())}
+            onClick={() => dispatch(_logout())}
             style={{ paddingLeft: 5 }}>
             {icon}
             <ListItemText primary={name} className={classes.text} />

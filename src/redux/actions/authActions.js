@@ -17,7 +17,7 @@ export const _login = (data) => {
   return (dispatch, getState) => {
     dispatch(loginLoading);
     try {
-      const user = { name: "Presley Maphosa", email: data.email };
+      const user = { name: "Richard Chifamba", email: data.email };
 
       //END POINT
 
