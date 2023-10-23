@@ -4,7 +4,8 @@ export const colors = {
   primary: {
     light: "#66b2ff",
     main: "#132f4c",
-    dark: "#0a1929",
+        dark: "#0a1929",
+    customBlue:"#00878a",
     contrastText: "#fff",
   },
   secondary: {
@@ -32,7 +33,8 @@ const theme = createTheme({
   },
 
   typography: {
-    // fontFamily: ["Gotham-Book"].join(","),
+    //   Poppins (woff2),Arial, sans-serif
+    fontFamily: [" Poppins (woff2),Arial, sans-serif"].join(","),
   },
 });
 
