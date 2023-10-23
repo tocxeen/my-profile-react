@@ -28,17 +28,26 @@ const itemData = [
   {
     img: slideImg1,
     title: "Hello!",
-    subTitle: "I am Richard Chifamba",
+    subTitle: "I'm",
+    span: "Richard Chifamba",
+    subTitle2: "",
+    job: "A Software Developer",
   },
   {
     img: slideImg2,
-    title: "Hello!",
-    subTitle: "I am Richard Chifamba",
+    title: "Hey!",
+    subTitle: "Check my",
+    span: "Skills and Resume",
+    subTitle2: "below",
+    job: "",
   },
   {
     img: slideImg1,
-    title: "Hello!",
-    subTitle: "I am Richard Chifamba",
+    title: "Yooh!",
+    subTitle: "Projects and my",
+    span: "Career path",
+    subTitle2: "",
+    job: "",
   },
 ];
 
@@ -140,17 +149,19 @@ function Home(props) {
                   variant="h2"
                   component="div"
                   className={classes.subTitle}>
-                  {"I'm "}
+                  {item.subTitle}{" "}
                   <span variant="h2" className={classes.span}>
-                    Richard <br />
-                    Chifamba
+                    {item.span}
+                    <br />
+                    {item.subTitle2}
                   </span>
                 </Typography>
                 <Typography
                   variant="h6"
                   component="div"
                   className={classes.param}>
-                  {" A Software Developer "}
+                  {item.job} <br />
+                  <Button className={classes.root}>My Skills</Button>
                 </Typography>
               </Box>
               <Box className={classes.img}>
@@ -221,7 +232,7 @@ const useStyles = makeStyles({
     width: "50vw",
     flex: 1,
     height: "inherit",
-    padding: "200px 240px",
+    padding: "100px 90px 160px 240px",
   },
 
   carouselTitle: {
@@ -245,6 +256,15 @@ const useStyles = makeStyles({
   param: {
     color: colors.primary.contrastText,
     marginTop: "20px",
+  },
+
+  root: {
+    background: "transparent",
+    border: "1px solid #fff !important",
+    borderRadius: "30px !important",
+    color: "#fff !important",
+    height: 48,
+    padding: "10px 30px !important",
   },
 });
 
