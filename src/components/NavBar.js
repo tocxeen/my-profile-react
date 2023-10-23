@@ -42,7 +42,7 @@ const itemData = [
   },
 ];
 
-function Home(props) {
+function NavBar(props) {
   const { window } = props;
   const location = useLocation();
 
@@ -146,6 +146,7 @@ function Home(props) {
                     Chifamba
                   </span>
                 </Typography>
+
                 <Typography
                   variant="h6"
                   component="div"
@@ -164,13 +165,21 @@ function Home(props) {
             </Box>
           ))}
         </Carousel>
+
         <Toolbar />
+        <Button className={classes.root}>Styled with Hook API</Button>
+        <Typography>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
+          unde fugit veniam eius, perspiciatis sunt? Corporis qui ducimus
+          quibusdam, aliquam dolore excepturi quae. Distinctio enim at eligendi
+          perferendis in cum quibusdam sed quae, accusantium et aperiam?
+        </Typography>
       </Box>
     </Box>
   );
 }
 
-Home.propTypes = {
+NavBar.propTypes = {
   window: PropTypes.func,
 };
 
@@ -199,9 +208,17 @@ const useStyles = makeStyles({
       borderBottom: "2px solid #00878a",
     },
   },
+  root: {
+    background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+    border: 0,
+    borderRadius: 3,
+    boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
+    color: "white",
+    height: 48,
+    padding: "0 30px",
+  },
 
   carouselSection: {
-    width: "100vw",
     marginTop: "7vh",
     background: "#000",
   },
@@ -244,8 +261,8 @@ const useStyles = makeStyles({
 
   param: {
     color: colors.primary.contrastText,
-    marginTop: "20px",
+    marginTop: "10px",
   },
 });
 
-export default Home;
+export default NavBar;
