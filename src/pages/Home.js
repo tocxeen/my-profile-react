@@ -21,6 +21,15 @@ import { colors } from "../utils/Theme";
 import Carousel from "react-material-ui-carousel";
 import slideImg1 from "../assets/images/rich1.png";
 import slideImg2 from "../assets/images/rich2.png";
+import profilePicture from "../assets/images/richard.png";
+import { Grid, Paper } from "@mui/material";
+import {
+  Table,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableCell,
+} from "@mui/material";
 
 const drawerWidth = 240;
 const navItems = ["Home", "About", "Resume", "Skills", "Projects", "Contact"];
@@ -105,12 +114,7 @@ function Home(props) {
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
-              <Button
-                className={classes.btn}
-                // style={{ textTransform: "none",fontSize:"16px" }}
-                // style={styles.btn}
-                key={item}
-                sx={{ color: "#fff" }}>
+              <Button className={classes.btn} key={item} sx={{ color: "#fff" }}>
                 {item}
               </Button>
             ))}
@@ -137,46 +141,112 @@ function Home(props) {
         </Drawer>
       </nav>
 
-      <Box component="main" className={classes.carouselSection}>
-        <Carousel>
-          {itemData.map((item) => (
-            <Box className={classes.carousel}>
-              <Box className={classes.text}>
-                <Typography className={classes.carouselTitle}>
-                  {item.title}
-                </Typography>
-                <Typography
-                  variant="h2"
-                  component="div"
-                  className={classes.subTitle}>
-                  {item.subTitle}{" "}
-                  <span variant="h2" className={classes.span}>
-                    {item.span}
-                    <br />
-                    {item.subTitle2}
-                  </span>
-                </Typography>
-                <Typography
-                  variant="h6"
-                  component="div"
-                  className={classes.param}>
-                  {item.job} <br />
-                  <Button className={classes.root}>My Skills</Button>
-                </Typography>
+      <Grid
+        container
+        spacing={1}
+        justifyContent="center"
+        className={classes.carouselSection}>
+        <Grid xs={12} sx={{ marginTop: "206px", marginBottom: "100px" }}>
+          <Carousel>
+            {itemData.map((item) => (
+              <Box className={classes.carousel}>
+                <Box className={classes.text}>
+                  <Typography className={classes.carouselTitle}>
+                    {item.title}
+                  </Typography>
+                  <Typography
+                    variant="h2"
+                    component="div"
+                    className={classes.subTitle}>
+                    {item.subTitle}{" "}
+                    <span variant="h2" className={classes.span}>
+                      {item.span}
+                      <br />
+                      {item.subTitle2}
+                    </span>
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    component="div"
+                    className={classes.param}>
+                    {item.job} <br />
+                    <Button className={classes.root}>My Skills</Button>
+                  </Typography>
+                </Box>
+                <Box className={classes.img}>
+                  <img
+                    srcSet={`${item.img}?w=948&fit=crop&auto=format&dpr=2 2x`}
+                    src={`${item.img}?w=948&fit=crop&auto=format`}
+                    alt={item.title}
+                    height="100%"
+                  />
+                </Box>
               </Box>
-              <Box className={classes.img}>
-                <img
-                  srcSet={`${item.img}?w=948&fit=crop&auto=format&dpr=2 2x`}
-                  src={`${item.img}?w=948&fit=crop&auto=format`}
-                  alt={item.title}
-                  height="100%"
-                />
-              </Box>
-            </Box>
-          ))}
-        </Carousel>
-        <Toolbar />
-      </Box>
+            ))}
+          </Carousel>
+          <Toolbar />
+        </Grid>
+        <Grid xs={4}>
+          <Box className={classes.img}>
+            <img
+              srcSet={`${profilePicture}?w=948&fit=crop&auto=format&dpr=2 2x`}
+              src={`${profilePicture}?w=948&fit=crop&auto=format`}
+              alt={"Richard"}
+              height="100%"
+            />
+          </Box>
+        </Grid>
+        <Grid xs={4}>
+          <Typography className={classes.about} variant="h3" component="div">
+            About Me
+          </Typography>
+          <Typography className={classes.aboutSub} sx={{ marginTop: "30px" }}>
+            A young innovative man who has 4+ years of experience in software
+            development.
+          </Typography>
+          <Table className={classes.table}>
+            <TableBody>
+              <TableRow>
+                <TableCell>
+                  <Typography sx={{ marginTop: "15px" }}>
+                    <span className={classes.aboutBold}>Name:</span>
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography sx={{ marginTop: "15px" }}>
+                    <span className={classes.aboutLight}>
+                      Richard Kumbirai Chifamba
+                    </span>
+                  </Typography>
+                </TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+
+          <Typography sx={{ marginTop: "15px" }}>
+            <span className={classes.aboutBold}>
+              Date of Birth:{"               "}
+            </span>
+            <span className={classes.aboutLight}>09/97</span>
+          </Typography>
+          <Typography sx={{ marginTop: "15px" }}>
+            <span className={classes.aboutBold}>
+              Address:{"               "}
+            </span>
+            <span className={classes.aboutLight}>Harare, Zimbawe</span>
+          </Typography>
+          <Typography sx={{ marginTop: "15px" }}>
+            <span className={classes.aboutBold}>Email:{"               "}</span>
+            <span className={classes.aboutLight}>
+              chifambarichard2@gmail.com
+            </span>
+          </Typography>
+          <Typography sx={{ marginTop: "15px" }}>
+            <span className={classes.aboutBold}>Phone:{"   "}</span>
+            <span className={classes.aboutLight}>+263782 428 177</span>
+          </Typography>
+        </Grid>
+      </Grid>
     </Box>
   );
 }
@@ -265,6 +335,27 @@ const useStyles = makeStyles({
     color: "#fff !important",
     height: 48,
     padding: "10px 30px !important",
+  },
+
+  about: {
+    color: "#fff",
+    fontWeight: "900 !important",
+  },
+  aboutSub: {
+    color: "#fff",
+  },
+  aboutBold: {
+    color: "#fff",
+    fontWeight: "800 !important",
+  },
+  aboutLight: {
+    color: "gray",
+  },
+  textWhite: {
+    color: "white",
+  },
+  table: {
+    border: "none",
   },
 });
 
