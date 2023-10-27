@@ -93,7 +93,7 @@ function Home(props) {
   const classes = useStyles();
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <div sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar component="nav" className={classes.navBar}>
         <Toolbar>
@@ -146,7 +146,7 @@ function Home(props) {
         spacing={1}
         justifyContent="center"
         className={classes.carouselSection}>
-        <Grid xs={12} sx={{ marginTop: "206px", marginBottom: "100px" }}>
+        <Grid item xs={12} sx={{ marginTop: "206px", marginBottom: "100px" }}>
           <Carousel>
             {itemData.map((item) => (
               <Box className={classes.carousel}>
@@ -186,7 +186,7 @@ function Home(props) {
           </Carousel>
           <Toolbar />
         </Grid>
-        <Grid xs={4}>
+        <Grid item xs={4}>
           <Box className={classes.img}>
             <img
               srcSet={`${profilePicture}?w=948&fit=crop&auto=format&dpr=2 2x`}
@@ -196,58 +196,85 @@ function Home(props) {
             />
           </Box>
         </Grid>
-        <Grid xs={4}>
+        <Grid item xs={4}>
           <Typography className={classes.about} variant="h3" component="div">
             About Me
           </Typography>
-          <Typography className={classes.aboutSub} sx={{ marginTop: "30px" }}>
+          <Typography className={classes.aboutLight} sx={{ marginTop: "30px" }}>
             A young innovative man who has 4+ years of experience in software
+            <br />
             development.
           </Typography>
-          <Table className={classes.table}>
-            <TableBody>
-              <TableRow>
-                <TableCell>
-                  <Typography sx={{ marginTop: "15px" }}>
-                    <span className={classes.aboutBold}>Name:</span>
-                  </Typography>
-                </TableCell>
-                <TableCell>
-                  <Typography sx={{ marginTop: "15px" }}>
-                    <span className={classes.aboutLight}>
-                      Richard Kumbirai Chifamba
-                    </span>
-                  </Typography>
-                </TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
 
-          <Typography sx={{ marginTop: "15px" }}>
-            <span className={classes.aboutBold}>
-              Date of Birth:{"               "}
-            </span>
-            <span className={classes.aboutLight}>09/97</span>
+          <Grid container spacing={2} sx={{ marginTop: "20px" }}>
+            <Grid item xs={3}>
+              <Typography className={classes.aboutBold}>Name:</Typography>
+            </Grid>
+            <Grid item xs={9}>
+              <Typography className={classes.aboutLight}>
+                Richard Chifamba
+              </Typography>
+            </Grid>
+            <Grid item xs={3}>
+              <Typography className={classes.aboutBold}>
+                Date of Birth:
+              </Typography>
+            </Grid>
+            <Grid item xs={9}>
+              <Typography className={classes.aboutLight}>09/97</Typography>
+            </Grid>
+            <Grid item xs={3}>
+              <Typography className={classes.aboutBold}>Address:</Typography>
+            </Grid>
+            <Grid item xs={9}>
+              <Typography className={classes.aboutLight}>
+                Harare, Zimbabwe
+              </Typography>
+            </Grid>
+            <Grid item xs={3}>
+              <Typography className={classes.aboutBold}>Email:</Typography>
+            </Grid>
+            <Grid item xs={9}>
+              <Typography className={classes.aboutLight}>
+                chifambarichard2@gmail.com
+              </Typography>
+            </Grid>
+            <Grid item xs={3}>
+              <Typography className={classes.aboutBold}>Phone:</Typography>
+            </Grid>
+            <Grid item xs={9}>
+              <Typography className={classes.aboutLight}>
+                +2637 8242 8177
+              </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Button className={classes.root}>Download My CV</Button>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item xs={12} sx={{ textAlign: "center", marginTop: "250px" }}>
+          <Typography className={classes.about} variant="h3" component="div">
+            Work Experience
           </Typography>
-          <Typography sx={{ marginTop: "15px" }}>
-            <span className={classes.aboutBold}>
-              Address:{"               "}
-            </span>
-            <span className={classes.aboutLight}>Harare, Zimbawe</span>
-          </Typography>
-          <Typography sx={{ marginTop: "15px" }}>
-            <span className={classes.aboutBold}>Email:{"               "}</span>
-            <span className={classes.aboutLight}>
-              chifambarichard2@gmail.com
-            </span>
-          </Typography>
-          <Typography sx={{ marginTop: "15px" }}>
-            <span className={classes.aboutBold}>Phone:{"   "}</span>
-            <span className={classes.aboutLight}>+263782 428 177</span>
+          <Typography className={classes.aboutLight} sx={{ marginTop: "30px" }}>
+            Software Engineer who specialised in Javascript frameworks such
+            Angular, Java-SpringBoot, PostGress, MySql.
+            <br />
+            DevOps
+            <br />
+            Developing NPM packages
           </Typography>
         </Grid>
+        <Grid container spacing={2} justifyContent="center">
+          <Grid item xs={8}>
+            <Typography className={classes.textWhite}>xs=6</Typography>
+          </Grid>
+          <Grid item xs={4}>
+            <Typography className={classes.textWhite}>xs=6</Typography>
+          </Grid>
+        </Grid>
       </Grid>
-    </Box>
+    </div>
   );
 }
 
@@ -284,6 +311,7 @@ const useStyles = makeStyles({
   carouselSection: {
     width: "100vw",
     marginTop: "7vh",
+    paddingBottom: "7vh",
     background: "#000",
   },
 
@@ -335,15 +363,14 @@ const useStyles = makeStyles({
     color: "#fff !important",
     height: 48,
     padding: "10px 30px !important",
+    paddingBottom: "30px",
   },
 
   about: {
     color: "#fff",
     fontWeight: "900 !important",
   },
-  aboutSub: {
-    color: "#fff",
-  },
+
   aboutBold: {
     color: "#fff",
     fontWeight: "800 !important",
@@ -353,9 +380,6 @@ const useStyles = makeStyles({
   },
   textWhite: {
     color: "white",
-  },
-  table: {
-    border: "none",
   },
 });
 
