@@ -23,13 +23,9 @@ import slideImg1 from "../assets/images/rich1.png";
 import slideImg2 from "../assets/images/rich2.png";
 import profilePicture from "../assets/images/richard.png";
 import { Grid, Paper } from "@mui/material";
-import {
-  Table,
-  TableHead,
-  TableBody,
-  TableRow,
-  TableCell,
-} from "@mui/material";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
 
 const drawerWidth = 240;
 const navItems = ["Home", "About", "Resume", "Skills", "Projects", "Contact"];
@@ -57,6 +53,23 @@ const itemData = [
     span: "Career path",
     subTitle2: "",
     job: "",
+  },
+];
+
+const experienceData = [
+  {
+    year: "2022 - Present",
+    position: "Senior Systems Developer",
+    company: "CLICKNPAY INVESTMENTSSenior Systems Developer",
+    description:
+      "developed, deployed web and mobile apps - live on web servers and playstore",
+  },
+  {
+    year: "2022 - Present",
+    position: "Senior Systems Developer",
+    company: "CLICKNPAY INVESTMENTSSenior Systems Developer",
+    description:
+      "developed, deployed web and mobile apps - live on web servers and playstore",
   },
 ];
 
@@ -265,12 +278,41 @@ function Home(props) {
             Developing NPM packages
           </Typography>
         </Grid>
-        <Grid container spacing={2} justifyContent="center">
-          <Grid item xs={8}>
-            <Typography className={classes.textWhite}>xs=6</Typography>
-          </Grid>
+
+        <Grid
+          item
+          xs={12}
+          container
+          spacing={2}
+          sx={{ justifyContent: "center", marginTop: "40px" }}>
           <Grid item xs={4}>
-            <Typography className={classes.textWhite}>xs=6</Typography>
+            <Card sx={{ minWidth: 250 }} className={classes.card}>
+              <CardContent>
+                <Typography
+                  variant="h5"
+                  className={classes.experiencePeriod}
+                  gutterBottom>
+                  2022 - Present
+                </Typography>
+                <Typography
+                  variant="h6"
+                  component="div"
+                  sx={{ mb: 1.5 }}
+                  className={classes.experienceTitle}>
+                  Senior Systems Developer
+                </Typography>
+                <Typography
+                  sx={{ mb: 3 }}
+                  className={classes.experienceCompany}>
+                  CLICKNPAY INVESTMENTS
+                </Typography>
+                <Typography variant="body2" className={classes.experienceText}>
+                  developed, deployed web and mobile apps - live on web servers
+                  and playstore
+                  <br />
+                </Typography>
+              </CardContent>
+            </Card>
           </Grid>
         </Grid>
       </Grid>
@@ -380,6 +422,25 @@ const useStyles = makeStyles({
   },
   textWhite: {
     color: "white",
+  },
+  card: {
+    background: "#1A1A1A !important",
+    padding: "10px",
+    color: "#fff",
+  },
+  experiencePeriod: {
+    color: "#00878a",
+    fontWeight: "800 !important",
+  },
+  experienceTitle: {
+    color: "#fff",
+  },
+  experienceCompany: {
+    color: "gray",
+    fontSize: "12px !important",
+  },
+  experienceText: {
+    color: "gray",
   },
 });
 
